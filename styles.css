@@ -1,0 +1,449 @@
+
+/* ==========================================
+   1. RESET AND GLOBAL STYLES
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    color: #334155;
+    background-color: #f1f5f9;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   2. CASCADE DEMONSTRATION
+========================================== */
+
+/* This rule loses because .card p has higher specificity. */
+p {
+    color: gray;
+}
+
+/* This rule wins because it is more specific than p. */
+.card p {
+    color: #475569;
+}
+
+
+/* ==========================================
+   3. HEADER AND NAVIGATION
+========================================== */
+
+header {
+    background: linear-gradient(135deg, #1f4e79, #2f6f9f);
+    color: white;
+    text-align: center;
+    padding: 42px 20px 32px;
+    border-bottom: 4px solid #38bdf8;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.12);
+}
+
+/* Grouping selector */
+h1,
+h2 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+nav a {
+    display: inline-block;
+    color: #dbeafe;
+    background-color: rgba(255, 255, 255, 0.07);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 19px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 7px;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+}
+
+/* Pseudo-class: navigation hover effect */
+nav a:hover {
+    background-color: #0284c7;
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   4. MAIN LAYOUT
+========================================== */
+
+main {
+    width: 100%;
+    max-width: 950px;
+    margin: 42px auto;
+    padding: 0 20px;
+}
+
+
+/* ==========================================
+   5. CONTENT CARDS AND BOX MODEL
+========================================== */
+
+.card {
+    width: 500px;
+    max-width: 100%;
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #dbe4ee;
+    border-radius: 14px;
+    margin: 0 auto 26px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.045);
+    transition: box-shadow 0.25s ease,
+                transform 0.25s ease;
+    scroll-margin-top: 20px;
+}
+
+/*
+   CARD WIDTH CALCULATION:
+   Because box-sizing is border-box, the total width is 500px.
+   Horizontal padding: 30px + 30px = 60px.
+   Horizontal borders: 1px + 1px = 2px.
+   The padding and borders are included in the 500px total.
+*/
+
+.card:hover {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+    transform: translateY(-2px);
+}
+
+/* Section headings */
+.card h2 {
+    color: #102a43;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dbeafe;
+}
+
+/* Pseudo-element: decorative heading accent */
+.card h2::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 22px;
+    background-color: #0284c7;
+    border-radius: 4px;
+    margin-right: 12px;
+    vertical-align: -4px;
+}
+
+/* Paragraph styling */
+.card p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    line-height: 1.9;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   6. ABOUT ME SECTION
+========================================== */
+
+#about {
+    position: relative;
+    border-left: 5px solid #2f6f9f;
+    background: linear-gradient(145deg, #ffffff, #f8fbff);
+    padding-top: 30px;
+}
+
+/* Keep About Me and Student Profile on one row */
+#about h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    padding-right: 165px;
+}
+
+/* Badge positioned in the top-right corner */
+#about::after {
+    content: "STUDENT PROFILE";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: #e0f2fe;
+    color: #075985;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: 1px solid #bae6fd;
+    border-radius: 5px;
+}
+
+.intro {
+    color: #1e293b;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+
+/* ==========================================
+   7. SKILLS SECTION - FLEXBOX
+========================================== */
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.skills-list > li {
+    background-color: #f0f9ff;
+    color: #164e63;
+    padding: 9px 13px;
+    border: 1px solid #cfe8f8;
+    border-left: 3px solid #2f6f9f;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.25s ease,
+                border-color 0.25s ease;
+}
+
+/* Small checkmark beside each skill */
+.skills-list > li::before {
+    content: "✓";
+    color: #0284c7;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.skills-list > li:hover {
+    background-color: #e0f2fe;
+    border-color: #7dd3fc;
+}
+
+
+/* ==========================================
+   8. NOTES: DISPLAY AND VISIBILITY
+========================================== */
+
+/* Completely hides the paragraph and removes its space. */
+.hide-none {
+    display: none;
+}
+
+/*
+   VISIBILITY DIFFERENCE:
+   display: none removes the element and its space.
+   visibility: hidden hides the element but preserves
+   its space in the layout.
+*/
+
+.hide-visibility {
+    visibility: hidden;
+}
+
+
+/* ==========================================
+   9. HOBBIES SECTION - SCROLLING
+========================================== */
+
+/*
+   The card has a fixed height and overflow: auto
+   to satisfy the assignment's scroll-box requirement.
+   The heading remains visible while the paragraph scrolls.
+*/
+
+.scroll-box {
+    height: 300px;
+    overflow: auto;
+    background-color: #ffffff;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+/* Keep the heading visible */
+.scroll-box h2 {
+    margin-bottom: 15px;
+}
+
+/* Scroll only the text inside the paragraph */
+.scroll-box p {
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+/* Scrollbar styling for Chrome and Edge */
+.scroll-box::-webkit-scrollbar,
+.scroll-box p::-webkit-scrollbar {
+    width: 7px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb,
+.scroll-box p::-webkit-scrollbar-thumb {
+    background-color: #94a3b8;
+    border-radius: 8px;
+}
+
+.scroll-box::-webkit-scrollbar-track,
+.scroll-box p::-webkit-scrollbar-track {
+    background-color: #f1f5f9;
+}
+
+
+/* ==========================================
+   10. FOOTER
+========================================== */
+
+footer {
+    background: linear-gradient(135deg, #1f4e79, #2f6f9f);
+    color: #eaf4fc;
+    text-align: center;
+    padding: 25px 20px;
+    border-top: 3px solid #38bdf8;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+footer p {
+    color: white;
+    margin: 4px 0;
+}
+
+
+/* ==========================================
+   11. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    main {
+        margin: 25px auto;
+        padding: 0 14px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 22px 18px;
+        margin-bottom: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+
+    #about {
+        padding-top: 55px;
+    }
+
+    #about h2 {
+        padding-right: 145px;
+    }
+
+    #about::after {
+        top: 12px;
+        right: 10px;
+        font-size: 9px;
+        letter-spacing: 0.5px;
+        padding: 5px 7px;
+    }
+
+    .skills-list {
+        gap: 8px;
+    }
+
+    .skills-list > li {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .scroll-box {
+        height: 300px;
+    }
+
+    .scroll-box p {
+        max-height: 150px;
+    }
+}
+
+
+/* ==========================================
+   12. REFLECTION QUESTIONS AND ANSWERS
+========================================== */
+
+/*
+1. Why did one of your two conflicting rules win?
+
+The .card p rule wins because it has greater specificity
+than the p selector. The p selector targets all paragraphs,
+while .card p targets only paragraphs inside elements with
+the card class. Therefore, .card p takes precedence.
+
+2. What is the rendered width of one .card with content-box?
+
+With content-box, the 500px width applies only to the content.
+The total width is 500px + 60px horizontal padding
++ 2px horizontal borders = 562px.
+
+3. When would you choose visibility: hidden instead of display: none?
+
+I would use visibility: hidden when I want to hide an element
+but preserve its space in the layout. For example, I could
+temporarily hide a message without shifting nearby content.
+I would use display: none when the element and its space
+should be completely removed.
+*/
